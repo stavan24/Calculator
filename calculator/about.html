@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BroCalci | About</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            <div class="nav-logo">BroCalci</div>
+        </div>
+        <div class="nav-links-desktop">
+            <a href="index.html">Home</a>
+            <a href="calc.html">Calculator</a>
+            <a href="about.html" style="color:var(--accent)">About</a>
+            <a href="profile.html">Profile</a>
+        </div>
+        <button class="btn-3d" onclick="toggleDarkMode()" style="padding: 8px 15px; aspect-ratio: auto;">🌓</button>
+    </nav>
+
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">🏠 Home</a>
+        <a href="calc.html">🔢 Calculator</a>
+        <a href="about.html">🚀 About</a>
+        <a href="profile.html">👤 Profile</a>
+    </div>
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <section class="content">
+        <div class="card-3d" style="text-align: left; width: 90%; max-width: 800px;">
+            <h1 style="text-align: center;">My Projects</h1>
+            <div style="margin-top: 20px;">
+                <div class="card-3d" style="margin-bottom: 20px; padding: 20px; box-shadow: 4px 4px 10px var(--s-dark);">
+                    <h3>🚀 Neumorphic UI Kit</h3>
+                    <p>A professional UI library built with soft shadows and 3D depth.</p>
+                </div>
+                <div class="card-3d" style="padding: 20px; box-shadow: 4px 4px 10px var(--s-dark);">
+                    <h3>📱 Responsive Web App</h3>
+                    <p>Fully functional multi-page site with LocalStorage integration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

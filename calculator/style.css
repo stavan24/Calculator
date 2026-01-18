@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --bg: #f0f2f5;
+    --text: #2d3436;
+    --s-light: #ffffff;
+    --s-dark: #d1d9e6;
+    --accent: #6c5ce7;
+    --nav-bg: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] {
+    --bg: #1a1c1e;
+    --text: #e9ecef;
+    --s-light: #242729;
+    --s-dark: #111213;
+    --accent: #81ecec;
+    --nav-bg: rgba(26, 28, 30, 0.85);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.4s ease;
+    overflow-x: hidden;
+}
+
+/* --- Responsive Navbar --- */
+nav {
+    height: 70px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.nav-logo {
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--accent);
+}
+
+/* Desktop Menu (Hidden on Mobile) */
+.nav-links-desktop {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links-desktop a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.nav-links-desktop a:hover {
+    color: var(--accent);
+    background: rgba(108, 92, 231, 0.1);
+}
+
+/* Hamburger (Hidden on Desktop) */
+.menu-btn {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text);
+}
+
+@media (max-width: 768px) {
+    .nav-links-desktop {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+}
+
+/* --- Sidebar (Mobile Only) --- */
+.sidebar {
+    position: fixed;
+    left: -300px;
+    top: 0;
+    width: 280px;
+    height: 100%;
+    background: var(--bg);
+    z-index: 2000;
+    transition: 0.4s ease;
+    padding: 40px 20px;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar a {
+    display: block;
+    padding: 15px;
+    color: var(--text);
+    text-decoration: none;
+    margin-bottom: 10px;
+    border-radius: 12px;
+}
+
+/* --- Calculator Fix (No Overflow) --- */
+.calculator-3d {
+    background: var(--bg);
+    padding: 25px;
+    border-radius: 30px;
+    box-shadow: 20px 20px 50px var(--s-dark), -10px -10px 30px var(--s-light);
+    width: 100%;
+    max-width: 350px;
+    /* Fits perfectly on mobile and desktop */
+}
+
+#display {
+    width: 100%;
+    height: 70px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    background: var(--bg);
+    box-shadow: inset 6px 6px 12px var(--s-dark), inset -6px -6px 12px var(--s-light);
+    margin-bottom: 20px;
+    text-align: right;
+    padding: 15px;
+    font-size: 28px;
+    color: var(--accent);
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.btn-3d {
+        width: 122px;
+    aspect-ratio: 1 / 1;
+    /* Makes them perfectly square */
+    border: none;
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 4px 4px 8px var(--s-dark), -4px -4px 8px var(--s-light);
+    transition: 0.2s;
+    font-size: 1.1rem;
+}
+
+.btn-3d:active {
+    box-shadow: inset 3px 3px 6px var(--s-dark), inset -3px -3px 6px var(--s-light);
+    transform: scale(0.95);
+}
+
+.btn-3d.equal {
+    aspect-ratio: auto;
+    /* Allow it to span 2 columns */
+    grid-column: span 2;
+    background: var(--accent);
+    color: white;
+}
+
+/* --- Layout --- */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 70px);
+    padding: 20px;
+}

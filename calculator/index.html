@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BroCalci | Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            <div class="nav-logo">BroCalci</div>
+        </div>
+        <div class="nav-links-desktop">
+            <a href="index.html" style="color:var(--accent)">Home</a>
+            <a href="calc.html">Calculator</a>
+            <a href="about.html">About</a>
+            <a href="profile.html">Profile</a>
+        </div>
+        <button class="btn-3d" onclick="toggleDarkMode()" style="padding: 8px 15px; aspect-ratio: auto;">🌓</button>
+    </nav>
+
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">🏠 Home</a>
+        <a href="calc.html">🔢 Calculator</a>
+        <a href="about.html">🚀 About</a>
+        <a href="profile.html">👤 Profile</a>
+    </div>
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <section class="content">
+        <div class="card-3d">
+            <h1>Welcome Bro!</h1>
+            <p>Experience the next generation of web utilities with our 3D Neumorphic interface. Clean, fast, and professional.</p>
+            <br>
+            <button class="btn-3d" style="aspect-ratio: auto;" onclick="location.href='calc.html'">Open Calculator</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

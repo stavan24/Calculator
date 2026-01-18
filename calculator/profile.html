@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BroCalci | Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            <div class="nav-logo">BroCalci</div>
+        </div>
+        <div class="nav-links-desktop">
+            <a href="index.html">Home</a>
+            <a href="calc.html">Calculator</a>
+            <a href="about.html">About</a>
+            <a href="profile.html" style="color:var(--accent)">Profile</a>
+        </div>
+        <button class="btn-3d" onclick="toggleDarkMode()" style="padding: 8px 15px; aspect-ratio: auto;">🌓</button>
+    </nav>
+
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">🏠 Home</a>
+        <a href="calc.html">🔢 Calculator</a>
+        <a href="about.html">🚀 About</a>
+        <a href="profile.html">👤 Profile</a>
+    </div>
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <section class="content">
+        <div class="card-3d" style="width: 100%; max-width: 400px;">
+            <h2>User Profile</h2>
+            <div id="displaySection" style="margin-top: 20px;">
+                <p><strong>Name:</strong> <span id="displayName">Bro User</span></p>
+                <p><strong>Bio:</strong> <span id="displayBio">Learning to code!</span></p>
+                <button class="btn-3d" style="margin-top: 20px; aspect-ratio: auto;" onclick="showEdit()">Edit Profile</button>
+            </div>
+            
+            <div id="editSection" style="display: none; margin-top: 20px;">
+                <input type="text" id="editName" class="btn-3d" style="width: 100%; aspect-ratio: auto; margin-bottom: 15px; text-align: left; box-shadow: inset 4px 4px 8px var(--s-dark);" placeholder="Your Name">
+                <textarea id="editBio" class="btn-3d" style="width: 100%; aspect-ratio: auto; margin-bottom: 15px; text-align: left; box-shadow: inset 4px 4px 8px var(--s-dark); height: 80px;" placeholder="About you"></textarea>
+                <button class="btn-3d" style="aspect-ratio: auto;" onclick="saveProfile()">Save Changes</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showEdit() {
+            document.getElementById('displaySection').style.display = 'none';
+            document.getElementById('editSection').style.display = 'block';
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

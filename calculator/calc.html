@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BroCalci | Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific Fix for Calculator Container */
+        .calculator-3d {
+            width: 95%;
+            max-width: 380px; /* Limits size on desktop */
+            margin: auto;
+            padding: 20px;
+            box-sizing: border-box; /* Crucial: includes padding in width */
+        }
+
+        .btn-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Exactly 4 equal columns */
+            gap: 12px; /* Space between buttons */
+            width: 100%;
+        }
+
+        .btn-3d {
+            width: 100%; /* Button takes full width of its grid cell */
+            aspect-ratio: 1 / 1; /* Keeps them perfectly square */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            padding: 0; /* Let grid/aspect-ratio handle size */
+        }
+
+        .btn-3d.equal {
+            aspect-ratio: auto; /* Overrides square shape for the long button */
+            grid-column: span 2; 
+            height: 100%;
+        }
+
+        #display {
+            width: 100%;
+            box-sizing: border-box; /* Prevents display from sliding out */
+        }
+        /* --- Professional 3D Button Animation --- */
+.btn-3d {
+    border: none;
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    /* This creates the 'upward' 3D look */
+    box-shadow: 6px 6px 12px var(--s-dark), 
+               -6px -6px 12px var(--s-light);
+    
+    /* Smooth transition for all properties */
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 0;
+}
+
+/* Hover State: The button 'lifts' slightly higher */
+.btn-3d:hover {
+    transform: translateY(-2px);
+    box-shadow: 8px 8px 16px var(--s-dark), 
+               -8px -8px 16px var(--s-light);
+    color: var(--accent);
+}
+
+/* Active State: The 'Pressed' 3D Animation */
+.btn-3d:active {
+    transform: translateY(2px); /* Moves down slightly */
+    /* Shadows flip to 'Inset' to look like it's pushed in */
+    box-shadow: inset 4px 4px 8px var(--s-dark), 
+                inset -4px -4px 8px var(--s-light);
+    transition: all 0.1s ease;
+}
+
+/* Special Animation for the Equal Button */
+.btn-3d.equal:active {
+    background: var(--accent);
+    filter: brightness(0.9);
+    box-shadow: inset 4px 4px 10px rgba(0,0,0,0.2);
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            <div class="nav-logo">BroCalci</div>
+        </div>
+        <div class="nav-links-desktop">
+            <a href="index.html">Home</a>
+            <a href="calc.html" style="color:var(--accent)">Calculator</a>
+            <a href="about.html">About</a>
+            <a href="profile.html">Profile</a>
+        </div>
+        <button class="btn-3d" onclick="toggleDarkMode()" style="padding: 8px 15px; aspect-ratio: auto; width: auto;">🌓</button>
+    </nav>
+
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">🏠 Home</a>
+        <a href="calc.html">🔢 Calculator</a>
+        <a href="about.html">🚀 About</a>
+        <a href="profile.html">👤 Profile</a>
+    </div>
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <section class="content">
+        <div class="calculator-3d">
+            <input type="text" id="display" readonly placeholder="0">
+            <div class="btn-grid">
+                <button class="btn-3d op" onclick="clearDisplay()">C</button>
+                <button class="btn-3d op" onclick="del()">DEL</button>
+                <button class="btn-3d op" onclick="append('%')">%</button>
+                <button class="btn-3d op" onclick="append('/')">/</button>
+                
+                <button class="btn-3d" onclick="append('7')">7</button>
+                <button class="btn-3d" onclick="append('8')">8</button>
+                <button class="btn-3d" onclick="append('9')">9</button>
+                <button class="btn-3d op" onclick="append('*')">×</button>
+                
+                <button class="btn-3d" onclick="append('4')">4</button>
+                <button class="btn-3d" onclick="append('5')">5</button>
+                <button class="btn-3d" onclick="append('6')">6</button>
+                <button class="btn-3d op" onclick="append('-')">-</button>
+                
+                <button class="btn-3d" onclick="append('1')">1</button>
+                <button class="btn-3d" onclick="append('2')">2</button>
+                <button class="btn-3d" onclick="append('3')">3</button>
+                <button class="btn-3d op" onclick="append('+')">+</button>
+                
+                <button class="btn-3d" onclick="append('0')">0</button>
+                <button class="btn-3d" onclick="append('.')">.</button>
+                <button class="btn-3d equal" onclick="calculate()">=</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
